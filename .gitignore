@@ -1,2 +1,5 @@
 *.o
-*.elf64
+*.elf
+*.img
+*.bin
+mnt/*
