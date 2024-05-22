@@ -29,8 +29,15 @@ sudo cp grub.cfg mnt/grub/grub.cfg
 sudo cp kernel.bin mnt/kernel.bin
 
 
-sudo rm -rf mnt/*
-sudo cp -r /boot/* mnt/
+#sudo rm -rf mnt/*
+#sudo cp -r /boot/* mnt/
+#sudo cp -r /boot/grub/grub.cfg mnt/grub/grub.cfg
+#sudo cp -r /boot/EFI/BOOT/BOOTX64.elf mnt/
+
+sudo rm -rf mnt/EFI
+sudo cp -r /boot/EFI mnt/EFI
+sudo rm -rf mnt/EFI/--removable
+sudo ls mnt/EFI
 
 sudo umount mnt
 sudo losetup -d $DEV
