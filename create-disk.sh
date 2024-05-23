@@ -28,6 +28,8 @@ sudo mount  $PART ./mnt
 sudo grub-install --boot-directory=mnt --efi-directory=mnt --bootloader-id=BOOT --target=x86_64-efi --removable
 
 sudo cp grub.cfg mnt/grub/grub.cfg
+#sudo cp /boot/grub/grub.cfg mnt/grub/grub.cfg
+
 sudo cp kernel.bin mnt/kernel.bin
 
 # Unmount partition and clean up
