@@ -8,6 +8,7 @@ build:
 	$(AS) -Fdwarf -f elf32 boot.asm -o boot.o
 	$(CC) -c kernel.c -gdwarf -g -o kernel.o -std=gnu99 -ffreestanding -Wall -Wextra
 	$(LD) -T linker.ld -o kernel.bin -nostdlib boot.o kernel.o
+	./create-disk.sh
 
 clean:
 	rm *.o *.bini *.img

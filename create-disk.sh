@@ -23,7 +23,7 @@ sudo mkfs.fat -F 32 $DEV
 sudo mkdir -p mnt
 sudo mount $DEV ./mnt
 #sudo mkdir -p mnt/EFI/BOOT
-sudo grub-install --boot-directory=mnt --efi-directory=mnt
+sudo grub-install --boot-directory=mnt --efi-directory=mnt --bootloader-id=BOOT --target=x86_64-efi
 
 sudo cp grub.cfg mnt/grub/grub.cfg
 sudo cp kernel.bin mnt/kernel.bin
@@ -32,12 +32,16 @@ sudo cp kernel.bin mnt/kernel.bin
 #sudo rm -rf mnt/*
 #sudo cp -r /boot/* mnt/
 #sudo cp -r /boot/grub/grub.cfg mnt/grub/grub.cfg
-#sudo cp -r /boot/EFI/BOOT/BOOTX64.elf mnt/
 
-sudo rm -rf mnt/EFI
-sudo cp -r /boot/EFI mnt/EFI
-sudo rm -rf mnt/EFI/--removable
-sudo ls mnt/EFI
+#sudo rm -rf mnt/EFI
+#sudo cp -r /boot/EFI mnt/EFI
+#sudo rm -rf mnt/EFI/--removable
+#sudo ls mnt/EFI
+
+#sudo mv mnt/EFI/BOOT/grubx64.efi mnt/EFI/BOOT/BOOTX64.EFI
+
+sudo cp BOOTX64.EFI mnt/EFI/BOOT/BOOTX64.EFI
+
 
 sudo umount mnt
 sudo losetup -d $DEV
