@@ -16,7 +16,7 @@ sudo losetup $DEV disk.img
 sudo kpartx -av $DEV
 
 # Wait for partitions to be available
-sleep 2
+sleep 0.5
 
 PART=/dev/mapper/$(basename $DEV)p1
 
