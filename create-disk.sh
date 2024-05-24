@@ -1,4 +1,12 @@
 #!/bin/bash
+grub-file --is-x86-multiboot kernel.bin
+is_multiboot=$?
+
+if [ $is_multiboot -ne 0 ]; then
+  echo kernel.bin is not a multiboot1
+  exit 1
+fi
+
 
 # Create disk image
 dd if=/dev/zero of=disk.img bs=1M count=600 status=progress

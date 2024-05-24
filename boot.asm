@@ -1,5 +1,7 @@
 extern kernel_main
 
+extern kernel_magic: dd
+
 section .multiboot
 	align 4
 	magic equ 0x1BADB002
@@ -21,7 +23,8 @@ section .text
 	_start:
 		mov esp, stack_top
 
-		; Kernel initialization code goes here
+    push ebx
+    push eax
 
 		call kernel_main
 
